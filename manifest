@@ -1,14 +1,14 @@
 #! /bin/bash
 
-export VERSION="43"
-export SYSTEM_DESC="ChimeraOS"
-export SYSTEM_NAME="chimeraos"
+export VERSION="1"
+export SYSTEM_DESC="KimeraKDE"
+export SYSTEM_NAME="KimeraKDE"
 export USERNAME="gamer"
 export SIZE="10000MB"
 export ARCHIVE_DATE=""
-export WEBSITE="https://chimeraos.org"
-export DOCUMENTATION_URL="https://chimeraos.org/about"
-export BUG_REPORT_URL="https://github.com/ChimeraOS/chimeraos/issues"
+export WEBSITE=""
+export DOCUMENTATION_URL=""
+export BUG_REPORT_URL="https://github.com/ruineka/kimerakde/issues"
 
 export KERNEL_PACKAGE="linux-chimeraos"
 export KERNEL_PACKAGE_ORIGIN="local"
@@ -41,14 +41,6 @@ export PACKAGES="\
 	fuse2 \
 	gamemode \
 	git \
-	gnome-console \
-	gnome-control-center \
-	gnome-disk-utility \
-	gnome-keyring \
-	gnome-session \
-	gnome-shell \
-	gnome-software \
-	gnome-text-editor \
 	gst-plugin-pipewire \
 	haveged \
 	htop \
@@ -77,28 +69,11 @@ export PACKAGES="\
 	lib32-vulkan-radeon \
 	libcurl-gnutls \
 	libidn11 \
-	libretro-beetle-pce-fast \
-	libretro-beetle-psx-hw \
-	libretro-citra \
-	libretro-desmume \
-	libretro-dolphin \
-	libretro-flycast \
-	libretro-genesis-plus-gx \
-	libretro-kronos \
-	libretro-mame \
-	libretro-mesen-s\
-	libretro-mgba \
-	libretro-mupen64plus-next \
-	libretro-nestopia \
-	libretro-picodrive \
-	libretro-ppsspp \
-	libretro-snes9x \
 	libva-intel-driver \
 	libva-mesa-driver \
 	libva-vdpau-driver \
 	libxcrypt-compat \
 	libxss \
-	lightdm \
 	liquidctl \
 	logrotate \
 	lshw \
@@ -113,11 +88,14 @@ export PACKAGES="\
 	openal \
 	openssh \
 	podman \
+	plasma \
+	plasma-wayland-session \
 	pulsemixer \
 	python \
 	python-inotify-simple \
 	retroarch \
 	rsync \
+	sddm \
 	smbclient \
 	sof-firmware \
 	sshfs \
@@ -137,7 +115,7 @@ export PACKAGES="\
 	wireplumber \
 	wqy-zenhei \
 	xdg-desktop-portal \
-	xdg-desktop-portal-gnome \
+	xdg-desktop-portal-plasma \
 	xdg-desktop-portal-wlr \
 	xdg-user-dirs-gtk \
 	xf86-video-amdgpu \
@@ -147,18 +125,12 @@ export PACKAGES="\
 export PACKAGE_OVERRIDES="\
 	https://github.com/ChimeraOS/linux-chimeraos/releases/download/v6.3.9-chos2/linux-chimeraos-6.3.9.chos2-1-x86_64.pkg.tar.zst \
 	https://github.com/ChimeraOS/linux-chimeraos/releases/download/v6.3.9-chos2/linux-chimeraos-headers-6.3.9.chos2-1-x86_64.pkg.tar.zst \
-	https://archive.archlinux.org/repos/2023/06/28/extra/os/x86_64/libretro-pcsx2-11900-2-x86_64.pkg.tar.zst \
-	https://archive.archlinux.org/repos/2023/06/07/extra/os/x86_64/nvidia-dkms-530.41.03-1-x86_64.pkg.tar.zst \
-	https://archive.archlinux.org/repos/2023/06/07/extra/os/x86_64/nvidia-utils-530.41.03-1-x86_64.pkg.tar.zst \
-	https://archive.archlinux.org/repos/2023/06/07/multilib/os/x86_64/lib32-nvidia-utils-530.41.03-1-x86_64.pkg.tar.zst \
-	https://archive.archlinux.org/repos/2023/06/07/extra/os/x86_64/nvidia-prime-1.0-4-any.pkg.tar.zst \
 "
 
 export AUR_PACKAGES="\
 	ayaled \
 	bcm20702a1-firmware \
 	boxtron \
-	chimera \
 	chimeraos-device-quirks-git \
 	downgrade \
 	frzr \
@@ -166,13 +138,7 @@ export AUR_PACKAGES="\
 	gamescope-session-git \
 	handygccs-git \
 	hhfc-git \
-	legendary \
 	lib32-gamescope-plus \
-	libretro-dosbox-pure-git \
-	libretro-opera-git \
-	libretro-prosystem-git \
-	libretro-stella2014-git \
-	libretro-virtualjaguar-git \
 	nintendo-udev \
 	opengamepadui-bin \
 	opengamepadui-session-git \
@@ -191,7 +157,6 @@ export AUR_PACKAGES="\
 	rz608-fix-git \
 	steam-removable-media-git \
 	ttf-kanit \
-	wyvern \
 	xpad-noone-dkms \
 	xpadneo-dkms \
 "
@@ -201,22 +166,19 @@ export SERVICES="\
 	avahi-daemon \
 	bluetooth \
 	bluetooth-workaround \
-	chimera-proxy.service \
-	chimera-proxy.socket \
 	fstrim.timer \
 	handycon \
 	haveged \
 	lightdm \
 	ryzenadj-controller \
+	sddm \
 	sshd \
 	systemd-timesyncd \
 "
 
 export USER_SERVICES="\
-	chimera.service \
 	gamemoded.service \
 	ryzen-tctl \
-	steam-patch.service \
 "
 
 export FILES_TO_DELETE="\
@@ -225,9 +187,6 @@ export FILES_TO_DELETE="\
 	/usr/share/doc \
 	/usr/share/gtk-doc \
 	/usr/share/help \
-	/usr/share/libretro/autoconfig/udev/Gasia_PS_Gamepad_USB.cfg \
-	/usr/share/libretro/autoconfig/udev/Sony-PlayStation3-DualShock3-Controller-Bluetooth.cfg \
-	/usr/share/libretro/autoconfig/udev/Xbox_360_Wireless_Receiver_Chinese01.cfg \
 	/usr/share/man \
 "
 
@@ -240,9 +199,6 @@ postinstallhook() {
 	${USERNAME} ALL=(ALL) NOPASSWD: /usr/bin/chimera-session-use-lightdm
 	${USERNAME} ALL=(ALL) NOPASSWD: /usr/share/chimera/bin/power-tool
 	" > /etc/sudoers.d/chimera
-
-	# disable retroarch menu in joypad configs
-	find /usr/share/libretro/autoconfig -type f -name '*.cfg' | xargs -d '\n' sed -i '/input_menu_toggle_btn/d'
 
 	# download and add racing wheel udev rules
 	pushd /usr/lib/udev/rules.d
@@ -257,33 +213,7 @@ postinstallhook() {
 	rm /usr/share/libalpm/hooks/71-dkms-remove.hook
 	pacman --noconfirm -Rnsdd make gcc dkms ${KERNEL_PACKAGE}-headers
 
-	# remove dolphin standalone emulator files (only need /usr/share/dolphin-emu/sys)
-	rm /usr/bin/dolphin-emu
-	rm /usr/bin/dolphin-emu-nogui
-	rm /usr/bin/dolphin-tool
-	rm /usr/share/applications/dolphin-emu.desktop
-	
-	# Hide the nvidia vulkan json by default and manage this file with a udev for Nvidia users because the Nvidia driver causes issues for non-nvidia hardware otherwise
-	mv /usr/share/vulkan/icd.d/nvidia_icd.json /usr/share/vulkan/icd.d/nvidia_icd.json.bak
-
-	# clean up desktop shortcuts
-	sed -i -e 's/Name=Steam (Runtime)/Name=Steam/' /usr/share/applications/steam.desktop
-	find /usr/share/applications/* | \
-	grep -v org.chimeraos.Gamescope.desktop | \
-	grep -v org.chimeraos.app.desktop | \
-	grep -v org.gnome.Console.desktop | \
-	grep -v org.gnome.DiskUtility.desktop | \
-	grep -v org.gnome.FileRoller.desktop | \
-	grep -v org.gnome.Nautilus.desktop | \
-	grep -v org.gnome.Settings.desktop | \
-	grep -v org.gnome.Software.desktop | \
-	grep -v org.gnome.TextEditor.desktop | \
-	grep -v steam.desktop | \
-	xargs -I {} sh -c "echo NoDisplay=true >> {}"
-
 	# force -steamdeck option in desktop mode to prevent constant steam updates
 	sed -i 's,Exec=/usr/bin/steam-runtime,Exec=/usr/bin/steam-runtime -steamdeck,' /usr/share/applications/steam.desktop
 
-	# set permissions for intel_gpu_top and mangohud
-	setcap cap_perfmon=+ep /usr/bin/intel_gpu_top
 }
